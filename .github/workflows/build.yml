@@ -26,6 +26,13 @@ jobs:
       - name: Build Extension
         run: node index.js
 
+      - name: Sign Extension
+        uses: cardinalby/webext-buildtools-chrome-crx-action@v2
+        with:
+            # zip file made at the packExtensionDir step
+            zipFilePath: `dist/image_replacer-${{ github.event.inputs.version }}.zip`
+            crxFilePath: 'build/Image_Replacer.crx'
+            privateKey: ${{ secrets.SIGNING_KEY_PEM }}
       - name: Tag
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

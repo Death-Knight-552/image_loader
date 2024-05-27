@@ -1,7 +1,7 @@
 import { default as webExt } from "web-ext";
 
 let current_dir = process.cwd()
-const distribution = `${current_dir}/build`;
+const distribution = `${current_dir}/dist`;
 
 let buildJSON = await webExt.cmd.build(
     {
