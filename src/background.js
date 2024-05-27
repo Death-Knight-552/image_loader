@@ -13,7 +13,10 @@ chrome.storage.local.get(["quality"]).then((result) => {
 	setIcon(high_quality_request)
 })}
 
-onStart()
+chrome.runtime.onStartup.addListener(
+  callback: onStart(),
+)
+
 
 chrome.storage.onChanged.addListener((changes, namespace) => {
 	let currentValue = changes["quality"]["newValue"];
