@@ -7,10 +7,13 @@ chrome.runtime.onInstalled.addListener(({ reason }) => {
 	}
 });
 
+function onStart() {
 chrome.storage.local.get(["quality"]).then((result) => {
 	high_quality_request = result["quality"] || false;
 	setIcon(high_quality_request)
-})
+})}
+
+onStart()
 
 chrome.storage.onChanged.addListener((changes, namespace) => {
 	let currentValue = changes["quality"]["newValue"];
