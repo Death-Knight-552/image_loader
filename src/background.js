@@ -14,7 +14,7 @@ chrome.storage.local.get(["quality"]).then((result) => {
 })}
 
 chrome.runtime.onStartup.addListener(
-  callback: onStart(),
+  onStart(),
 )
 
 
